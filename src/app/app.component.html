@@ -1,0 +1,54 @@
+
+<button (click)="getdata()" class="btn btn-primary">getdata</button>
+{{count()}}
+<br>
+<br>
+
+<table border="1" class="table table-striped">
+  <thead>
+<tr>
+  <td>Id</td>
+  <td>Name</td>
+</tr>
+  </thead>
+@for (item of student; track $index; let a=$odd; let b=$even; let f=$first; let l=$last) 
+{  
+
+  @if(a)
+  {
+
+  <tr >
+    <td>{{$index+1}}</td>
+    <td style="background-color: green;" >{{item.name}}</td>
+  </tr>
+
+} 
+  @if(b){
+    <tr >
+      <td>{{$index+1}}</td>
+      <td style="background-color: red;">{{item.name}}</td>
+    </tr>
+}
+
+
+ 
+
+}
+</table>
+
+
+<br>
+<br>
+<button  routerLink='user'>go to user page</button>
+<br>
+
+
+
+@for (item of userDetails; track $index) {
+  {{item.Id}}
+  {{item.Name}}
+  {{item.Age}}
+}
+
+<app-user></app-user>
+<router-outlet></router-outlet>
